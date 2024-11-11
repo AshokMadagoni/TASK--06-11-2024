@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form action="" onsubmit="login(event)">
+    <input type="text" name="" id="name1" placeholder="enter your name" required>
+    <input type="password" name="" id="password" placeholder="enter your password" required>
+    <input type="submit" value="login">
+   </form>
+   <script>
+    function login(event){
+        event.preventDefault()
+        let checkname=document.getElementById("name1")
+        let checkpassword=document.getElementById("password")
+        let username=localStorage.getItem("name")
+        let userpassword=localStorage.getItem("password")
+
+        if(username===checkname.value && userpassword=== checkpassword.value){
+        alert("login successfull")
+        localStorage.setItem("isloggedin","true")
+        location.href="home.html"
+        }else{
+            alert("oops wrong details")
+            location.href="login.html"
+        }
+        checkname.value=""
+        checkpassword.value=""
+    }
+   </script>
+</body>
+</html>
